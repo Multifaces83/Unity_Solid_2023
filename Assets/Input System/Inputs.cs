@@ -3,12 +3,12 @@ using UnityEngine.InputSystem;
 
 public class Inputs : MonoBehaviour
 {
-[Header("Character Input Value")]
-[SerializeField] private PlayerInput m_playerInput;
+    [Header("Character Input Value")]
+    [SerializeField] private PlayerInput m_playerInput;
 
-public Vector2 move;
-public Vector2 m_look;
-public bool jump;
+    public Vector2 move;
+    public Vector2 m_look;
+    public bool jump;
 
     public void OnMove(InputValue value)
     {

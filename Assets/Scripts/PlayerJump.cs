@@ -6,10 +6,10 @@ public class PlayerJump : MonoBehaviour, IJumpable
 {
     [SerializeField] private Rigidbody m_rigidbody;
     [SerializeField] private float m_jumpForce = 0.1f;
-    public Inputs _inputs;
+    [SerializeField] private Inputs _inputs;
     public void Jump()
     {
-        if(_inputs.jump)
+        if (_inputs.jump)
         {
             m_rigidbody.AddForce(Vector3.up * m_jumpForce, ForceMode.Impulse);
         }
@@ -17,11 +17,11 @@ public class PlayerJump : MonoBehaviour, IJumpable
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Jump();
     }

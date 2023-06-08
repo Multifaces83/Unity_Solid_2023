@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthyFood : FoodItem
+public class HealthyFood : MonoBehaviour, ICollectable, ILifeModifier
 {
-   public override void Collect()
-   {
-      Debug.Log("You ate a healthy food! Miam MiaM MiaM");
-   }
+    [SerializeField] private int healAmount = 1;
+    public void Collect()
+    {
+        Destroy(gameObject);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Collect();
+
+    }
+    public void ApplyLifeModification(PlayerHealth playerHealth)
+    {
+        playerHealth.Heal(healAmount);
+    }
+
 }
